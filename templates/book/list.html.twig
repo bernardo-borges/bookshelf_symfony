@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Book List
+{% endblock %}
+
+{% block body %}
+  <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font:
+    18px/1.5 sans-serif; } .example-wrapper code { background: #F5F5F5; padding:
+    2px 6px; }
+  </style>
+
+  <div class="example-wrapper">
+<button type="button" class="btn btn-success">Add <i class="bi bi-patch-plus-fill"></i></button>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            #
+          </th>
+          <th scope="col">
+            Name
+          </th>
+          <th scope="col">
+            Pages Read
+          </th>
+          <th scope="col">
+            Nº Pages
+          </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in list %}
+          <tr>
+            <th>
+              {{ book.id }}
+            </th>
+            <th>
+              {{ book.name }}
+            </th>
+            <th>
+              {{ book.pagesRead }}
+            </th>
+            <th>
+              {{ book.maxPages }}
+            </th>
+            <th>
+              <a href="{{path('editBook',{id:book.id})}}">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+            </th>
+            <th>
+              <a href="{{path('deleteBook',{id:book.id})}}">
+                <i class="bi bi-trash"></i>
+                </a>
+            </th>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -1,3 +1,22 @@
-#index:
+# index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+book:
+    path: /book
+    controller: App\Controller\BookController:index
+
+newBook:
+    path: /book/new
+    controller: App\Controller\BookController:new
+
+listBook:
+    path: /book/list
+    controller: App\Controller\BookController:list
+
+editBook:
+    path: /book/edit/{id}
+    controller: App\Controller\BookController:edit  
+
+deleteBook:
+    path: /book/delete/{id}
+    controller: App\Controller\BookController:delete  
