@@ -14,9 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BookController extends AbstractController
 {
-    /**
-     * @Route("/book", name="book")
-     */
+    
     public function index(): Response
     {
         return $this->render('book/index.html.twig', [
@@ -28,7 +26,7 @@ class BookController extends AbstractController
     public function new(Request $request): Response
     {
         $book = new Book();
-        $book->setName('Write a blog post');
+        $book->setName('Book');
         $book->setMaxPages(1);
         $book->setPagesRead(0);
 
@@ -64,12 +62,10 @@ class BookController extends AbstractController
 
         public function delete(int $id , Request $request): Response
         {
- 
             $entityManager = $this->getDoctrine()->getManager();
             $book = $entityManager->getRepository(Book::class)->find($id);
             $entityManager->remove($book);
             $entityManager->flush();
-
             return $this->redirectToRoute('listBook');
         }
 
@@ -80,8 +76,6 @@ class BookController extends AbstractController
             $book = $this->getDoctrine()
             ->getRepository(Book::class)
             ->find($id);
-
-
     
             $form = $this->createFormBuilder($book)
                 ->add('name', TextType::class)
@@ -102,8 +96,6 @@ class BookController extends AbstractController
                 return $this->render('book/book.html.twig', [
                     'form' => $form->createView(),
                 ]); 
-        
-            
         }
 
 

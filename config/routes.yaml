@@ -1,6 +1,6 @@
-index:
-   path: /
-   controller:  App\Controller\BookController:list
+# index:
+#    path: /
+#    controller:  App\Controller\BookController:list
 book:
     path: /book
     controller: App\Controller\BookController:index
