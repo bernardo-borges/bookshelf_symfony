@@ -28,7 +28,5 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-    - name: PHPUnit for Symfony
-      uses: chindit/actions-phpunit-symfony@1.0.0
     - name: Run Tests
       run : ./vendor/bin/phpunit --testdox tests     
